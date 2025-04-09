@@ -1,0 +1,75 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(to bottom, #3e4eff, #6e88fc);
+}
+
+.container {
+    display: grid;
+    place-items: center;
+}
+
+.semaforo {
+    width: 150px; /* Aumentei a largura do semáforo */
+    height: 300px; /* Aumentei a altura do semáforo */
+    border-radius: 30px;
+    display: grid;
+    place-items: center;
+    background-color: #2c3e50;
+    padding: 20px; /* Aumentei o padding para acomodar melhor os elementos dentro */
+}
+
+.luzes-circulo {
+    display: block;
+    width: 70px; /* Aumentei o tamanho das luzes */
+    height: 70px; /* Aumentei o tamanho das luzes */
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.luzes-circulo::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border-right: 4px solid rgba(0, 0, 0, 0.6);
+    top: 10%;
+}
+
+.poste {
+    width: 15px; /* Aumentei a largura do poste */
+    height: 320px; /* Aumentei a altura do poste */
+    background-color: rgb(0, 0, 0, 0.5);
+}
+
+.chao {
+    width: 500px; /* Aumentei a largura do chão */
+    height: 0px;
+    background-color: rgb(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px 1px #000000;
+}
+
+.red {
+    background-color: #c0392b;
+    box-shadow: 0 0 10px 1px #c0392b;
+}
+
+.yellow {
+    background-color: #f1c40f;
+    box-shadow: 0 0 10px 1px #f1c40f;
+}
+
+.green {
+    background-color: #2ecc71;
+    box-shadow: 0 0 10px 1px #2ecc71;
+}
