@@ -1,55 +1,118 @@
-
 html {
-    box-sizing: border-box;
-    }
-    
-    *, *::before, *::after {
-    box-sizing: inherit;
-    }
-    
-    #piano {
-    background-color: #484d4e;
-    width: 992px;
-    height: 290px;
-    margin: 80px auto;
-    padding: 90px 20px 0 20px;
-    position: relative;
-    border-radius: 10px;
-    }
-    
-    .keys {
-    background-color: #040404;
-    width: 949px;
-    height: 180px;
-    padding-left: 2px;
-    }
-    
-    .key {
-    background-color: #ffffff;
-    position: relative;
-    width: 41px;
-    height: 175px;
-    margin: 2px;
-    float: left;
-    border-radius: 0 0 3px 3px;
-    }
-    
-    .key.black--key::after {
-    background-color: #1d1e22;
-    content: "";
-    position: absolute;
-    left: -18px;
-    width: 32px;
-    height: 100px;
-    border-radius: 0 0 3px 3px;
-    }
-    
-    .logo {
-    width: 200px;
-    position: absolute;
-    top: 23px;
-    }
-    
-    @media{
-    max-width: 768px;
-    }
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #1c1c1c;
+}
+
+#piano {
+  background-color: #484d4e;
+  width: 992px;
+  height: 290px;
+  margin: 80px auto;
+  padding: 90px 20px 0 20px;
+  position: relative;
+  border-radius: 10px;
+}
+
+.keys {
+  position: relative;
+  background-color: #040404;
+  width: 949px;
+  height: 180px;
+  display: flex;
+  position: relative;
+}
+
+/* Teclas brancas */
+.key.white {
+  background-color: #ffffff;
+  width: 60px;
+  height: 175px;
+  margin: 0 1px;
+  border-radius: 0 0 3px 3px;
+  z-index: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+}
+
+/* Teclas pretas */
+.key.black {
+  background-color: #1d1e22;
+  width: 28px;
+  height: 100px;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  border-radius: 0 0 3px 3px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #fff;
+}
+
+/* Posição das teclas pretas */
+#keyCSharp { left: 30px; }
+#keyDSharp { left: 75px; }
+#keyFSharp { left: 195px; }
+#keyGSharp { left: 240px; }
+#keyASharp { left: 285px; }
+
+.label {
+  margin-bottom: 5px;
+}
+
+.pressed {
+  transform: scaleY(0.95);
+  background-color: #ccc !important;
+}
+
+.logo {
+  width: 200px;
+  position: absolute;
+  top: 23px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  #piano {
+    width: 100%;
+    height: auto;
+    padding: 40px 10px;
+  }
+
+  .keys {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .key.white {
+    height: 120px;
+    width: 30px;
+  }
+
+  .key.black {
+    height: 70px;
+    width: 20px;
+  }
+
+  .logo {
+    width: 150px;
+  }
+}
