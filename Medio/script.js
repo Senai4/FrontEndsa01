@@ -1,38 +1,30 @@
+const $luzesDelCirculo = document.querySelectorAll('.luzes-circulo');
 
-const $luzesDelCirculo = document
-
- .querySelectorAll(
-
-  '.luzes-circulo');
-
+// Sequência desejada: vermelho → verde → amarelo
+const ordemDasCores = ['red', 'green', 'yellow'];
 let contadorDeLuz = 0;
 
 const mostrarLuz = () => {
+  // Remove todas as classes de cor das luzes
+  $luzesDelCirculo.forEach(luz => {
+    luz.className = 'luzes-circulo';
+  });
 
- $luzesDelCirculo[contadorDeLuz]
+  // Pega a cor atual da sequência
+  const corAtual = ordemDasCores[contadorDeLuz];
 
-  .className = 'luzes-circulo';
+  // Encontra o span com o atributo color correspondente
+  const luzAtual = Array.from($luzesDelCirculo).find(
+    luz => luz.getAttribute('color') === corAtual
+  );
 
- contadorDeLuz++;
+  // Adiciona a classe da cor
+  if (luzAtual) {
+    luzAtual.classList.add(corAtual);
+  }
 
- if (contadorDeLuz > 2)
+  // Avança para a próxima cor na sequência
+  contadorDeLuz = (contadorDeLuz + 1) % ordemDasCores.length;
+};
 
-  contadorDeLuz = 0;
-
- const luzActual =
-
-  $luzesDelCirculo[
-
-   contadorDeLuz];
-
- luzActual.classList.add(
-
-  luzActual.getAttribute(
-
-   'color'))
-
-}
-
-setInterval(mostrarLuz, 2000)
-
-        
+setInterval(mostrarLuz, 2000);

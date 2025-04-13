@@ -1,29 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Piano</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div id="piano">
-    <div class="keys">
-      <div class="key white" id="keyC"><span class="label">C</span></div>
-      <div class="key black" id="keyCSharp"><span class="label">C#</span></div>
-      <div class="key white" id="keyD"><span class="label">D</span></div>
-      <div class="key black" id="keyDSharp"><span class="label">D#</span></div>
-      <div class="key white" id="keyE"><span class="label">E</span></div>
-      <div class="key white" id="keyF"><span class="label">F</span></div>
-      <div class="key black" id="keyFSharp"><span class="label">F#</span></div>
-      <div class="key white" id="keyG"><span class="label">G</span></div>
-      <div class="key black" id="keyGSharp"><span class="label">G#</span></div>
-      <div class="key white" id="keyA"><span class="label">A</span></div>
-      <div class="key black" id="keyASharp"><span class="label">A#</span></div>
-      <div class="key white" id="keyB"><span class="label">B</span></div>
-      <div class="key white" id="keyC2"><span class="label">C</span></div>
+<html lang="pt-br">  
+  <head>
+    <meta charset="utf-8"> 
+    <title>Piano</title>
+    <link rel="stylesheet" href="style.css">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  </head>
+  <body>
+    <div class="wrapper"> 
+      <header>
+        <div class="column volume-slider"> 
+          <span>Volume</span>
+          <input type="range" min="0" max="1" value="0.5" step="any">     
+        </div>
+        <div class="column">
+          <button id="toggle-power" class="toggle-button off">
+            <span class="label">OFF</span>
+          </button>
+        </div>        
+      </header>
+      <ul class="piano-keys"> 
+        <li class="key white" data-key="a"><span></span></li>  
+        <li class="key black" data-key="w"><span></span></li>  
+        <li class="key white" data-key="s"><span></span></li>  
+        <li class="key black" data-key="e"><span></span></li>  
+        <li class="key white" data-key="d"><span></span></li>  
+        <li class="key white" data-key="f"><span></span></li>  
+        <li class="key black" data-key="t"><span></span></li>  
+        <li class="key white" data-key="g"><span></span></li>  
+        <li class="key black" data-key="y"><span></span></li>  
+        <li class="key white" data-key="h"><span></span></li>  
+        <li class="key black" data-key="u"><span></span></li>  
+        <li class="key white" data-key="j"><span></span></li>  
+        <li class="key white" data-key="k"><span></span></li>  
+        <li class="key black" data-key="o"><span></span></li>  
+        <li class="key white" data-key="l"><span></span></li>  
+        <li class="key black" data-key="p"><span></span></li>  
+        <li class="key white" data-key=";"><span></span></li>  
+      </ul>
+      
     </div>
-  </div>  
-</body>
-<script src="script.js"></script>
+  </body> 
+  <script src="script.js" defer></script> 
 </html>

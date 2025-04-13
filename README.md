@@ -9,4 +9,12 @@ Desafios:
  Nível Difícil - Jogo da Velha
 
  Desafio:
- -
+ - Tivemos desafios em estilizar a mensagem com o resultado da partida;
+ - Garantir que, após o resultado da partida o jogo não permita mais que os ícones sejam colocados nas demais casas vazias até que o jogo seja reiniciado.
+
+ Nível Fácil - Piano
+
+ Desafio:
+ - Apesar de ser considerado o mais fácil, enfrentamos desafios para a funcionalidade das teclas de forma correta;
+ - Garantir que as teclas pretas não sobreponham as brancas;
+ - Fazer com que as notas fossem atribuídas à tecla correta.

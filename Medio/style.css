@@ -9,8 +9,8 @@ body {
     min-height: 100vh;
     display: grid;
     place-items: center;
-    background: linear-gradient(to bottom, #3e4eff, #6e88fc);
-}
+    background: linear-gradient(to bottom, #ffffa5, #38b7a7);
+}  
 
 .container {
     display: grid;
