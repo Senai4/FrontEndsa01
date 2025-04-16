@@ -1,70 +1,77 @@
-// Seleciona todos os elementos das teclas do piano, controle de volume e botão de ligar/desligar
+    // Seleciona todos os elementos com a classe "key" dentro do contêiner ".piano-keys"
 const pianoKeys = document.querySelectorAll(".piano-keys .key"),
+      // Seleciona o controle deslizante de volume (input dentro de .volume-slider)
       volumeSlider = document.querySelector(".volume-slider input"),
+      // Seleciona o botão de ligar/desligar o piano (com ID "toggle-power")
       togglePowerButton = document.querySelector("#toggle-power");
 
-
-// Array que vai guardar as teclas (ex: "a", "s", "d"...)
-// Objeto de áudio usado para tocar as notas
-// Booleano que controla se o piano está ligado ou desligado
+// Array que armazenará as teclas do piano 
 let allKeys = [],
-    audio = new Audio(`tunes/a.wav`);
-let isPianoOn = false;
+    // Objeto de áudio que será usado para tocar os sons das notas
+    audio = new Audio(`tunes/a.wav`),
+    // Variável booleana para controlar se o piano está ligado ou desligado
+    isPianoOn = false;
 
-// Remove qualquer texto que esteja dentro do botão de ligar/desligar (caso use só ícone)
+// Remove qualquer texto dentro do botão de ligar/desligar, deixando ele apenas visual 
 togglePowerButton.textContent = "";
 
-// Função que toca a nota correspondente à tecla
+/* Função responsável por tocar a nota musical correspondente a uma tecla */
 const playTune = (key) => {
-// Atualiza o caminho do áudio com base na tecla
-audio.src = `tunes/${key}.wav`;
-audio.play();
+    // Atualiza o caminho do arquivo de som conforme a tecla clicada 
+    audio.src = `tunes/${key}.wav`;
+    audio.play(); // Reproduz o áudio
 
-// Seleciona a tecla clicada para animar visualmente
-const clickedKey = document.querySelector(`[data-key="${key}"]`);
-clickedKey.classList.add("active");
-
-// Remove a classe de animação após 150ms
-setTimeout(() => {
-    clickedKey.classList.remove("active");
-    }, 150);
+    // Seleciona visualmente a tecla que foi tocada
+    const clickedKey = document.querySelector(`[data-key="${key}"]`);
+    // Adiciona a classe "active" para dar um efeito visual (como se a tecla afundasse)
+    clickedKey.classList.add("active");
+    
+    // Remove a classe "active" após 150 milissegundos para encerrar a animação
+    setTimeout(() => clickedKey.classList.remove("active"), 150);
 };
 
-// Para cada tecla do piano:
+/* Adiciona eventos de clique para todas as teclas do piano */
 pianoKeys.forEach(key => {
-    // Armazena a tecla no array allKeys (ex: "a", "s", "d"...)
+    // Adiciona a tecla atual ao array allKeys
     allKeys.push(key.dataset.key);
-    // Adiciona evento de clique: se o piano estiver ligado, toca a nota
+
+    // Quando a tecla for clicada e o piano estiver ligado, toca a nota correspondente
     key.addEventListener("click", () => {
         if (isPianoOn) playTune(key.dataset.key);
     });
 });
 
-// Função que ajusta o volume conforme o valor do controle deslizante
+/* Função que ajusta o volume do piano com base no valor do controle deslizante */
 const handleVolume = (e) => {
-    audio.volume = e.target.value;
+    audio.volume = e.target.value; // Define o volume atual do áudio
 };
 
-// Função para alternar o estado do piano (ligado/desligado)
+/* Função que liga ou desliga o piano ao clicar no botão */
 const togglePianoState = () => {
+    // Inverte o estado atual do piano (de ligado para desligado ou vice-versa)
     isPianoOn = !isPianoOn;
 
-    // Altera visualmente o botão com classes CSS "on" e "off"
+    // Se o piano estiver ligado, adiciona a classe "on" ao botão
     togglePowerButton.classList.toggle("on", isPianoOn);
+    // Se estiver desligado, adiciona a classe "off" ao botão
     togglePowerButton.classList.toggle("off", !isPianoOn);
 };
 
-// Detecta quando uma tecla do teclado físico é pressionada
+/* Função que detecta se uma tecla do teclado físico foi pressionada */
 const pressedKey = (e) => {
+    // Se o piano estiver ligado e a tecla pressionada estiver no array allKeys, toca a nota
     if (isPianoOn && allKeys.includes(e.key)) {
         playTune(e.key);
     }
 };
 
-// Eventos
-// Clique no botão de ligar/desligar
+// ===== Eventos principais do piano ===== //
+
+// Quando o botão de ligar/desligar for clicado, alterna o estado do piano
 togglePowerButton.addEventListener("click", togglePianoState);
-// Mudança no controle de volume
+
+// Quando o usuário mover o controle de volume, ajusta o volume do áudio
 volumeSlider.addEventListener("input", handleVolume);
-// Pressionar tecla do teclado físico
+
+// Quando o usuário pressionar uma tecla do teclado físico, verifica se deve tocar som
 document.addEventListener("keydown", pressedKey);
