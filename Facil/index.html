@@ -1,25 +1,42 @@
 <!DOCTYPE html>
+<!-- Define o tipo de documento como HTML5 -->
 <html lang="pt-br">  
   <head>
     <meta charset="utf-8"> 
+    <!-- Define o conjunto de caracteres como UTF-8 -->
     <title>Piano</title>
+    <!-- Define o título da aba do navegador -->
     <link rel="stylesheet" href="style.css">  
+    <!-- Conecta o arquivo CSS para estilização -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <!-- Garante que o site será responsivo em dispositivos móveis -->
   </head>
   <body>
+    <!-- Container principal da interface -->
     <div class="wrapper"> 
+      
+      <!-- Cabeçalho com controles -->
       <header>
+        <!-- Coluna com controle de volume -->
         <div class="column volume-slider"> 
           <span>Volume</span>
+          <!-- Controle deslizante de volume, valor padrão 0.5 -->
           <input type="range" min="0" max="1" value="0.5" step="any">     
         </div>
+
+        <!-- Coluna com botão de ligar/desligar -->
         <div class="column">
+          <!-- Botão de alternância de energia com classe inicial "off" -->
           <button id="toggle-power" class="toggle-button off">
+            <!-- Texto dentro do botão indicando o estado -->
             <span class="label">OFF</span>
           </button>
         </div>        
       </header>
+
+      <!-- Lista com todas as teclas do piano -->
       <ul class="piano-keys"> 
+        <!-- Cada tecla possui uma classe (branca ou preta) e um atributo data-key que representa a tecla do teclado associada -->
         <li class="key white" data-key="a"><span></span></li>  
         <li class="key black" data-key="w"><span></span></li>  
         <li class="key white" data-key="s"><span></span></li>  
@@ -41,5 +58,6 @@
       
     </div>
   </body> 
+  <!-- Conecta o arquivo JavaScript e adia sua execução até que o HTML seja carregado -->
   <script src="script.js" defer></script> 
 </html>

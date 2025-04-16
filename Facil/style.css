@@ -1,3 +1,4 @@
+/* Zera margens e preenchimentos de todos os elementos, define box-sizing e fonte padrão */
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +6,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
+/* Estiliza o body para centralizar conteúdo e aplicar um fundo com degradê */
 body {
   display: flex;
   align-items: center;
@@ -13,12 +15,14 @@ body {
   background: linear-gradient(to bottom, #ffffa5, #38b7a7);
 }
 
+/* Estiliza o contêiner principal com padding, bordas arredondadas e fundo escuro */
 .wrapper {
   padding: 35px 40px;
   border-radius: 20px;
   background: #141414;
 }
 
+/* Estilo do cabeçalho dentro do wrapper */
 .wrapper header {
   display: flex;
   color: #B2B2B2;
@@ -26,31 +30,38 @@ body {
   justify-content: space-between;
 }
 
+/* Título do cabeçalho */
 header h2 {
   font-size: 1.6rem;
 }
 
+/* Alinha elementos dentro da coluna do cabeçalho */
 header .column {
   display: flex;
   align-items: center;
 }
 
+/* Estilo dos textos (ex: labels) no cabeçalho */
 header span {
   font-weight: 500;
   margin-right: 15px;
   font-size: 1.19rem;
 }
 
+/* Estilização de input (como sliders ou campos de texto) no cabeçalho */
 header input {
   outline: none;
   border-radius: 30px;
 }
 
+/* Estiliza a cor do controle de volume (slider) */
 .volume-slider input {
   accent-color: #fff;
 }
 
-/* Estilo do botão */
+/* ========================== */
+/* Estilo do botão de toggle (liga/desliga) */
+/* ========================== */
 .toggle-button {
   width: 60px;
   height: 30px;
@@ -65,7 +76,7 @@ header input {
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Bolinha */
+/* Bolinha interna do botão */
 .toggle-button::after {
   content: '';
   position: absolute;
@@ -78,7 +89,7 @@ header input {
   transition: transform 0.3s ease;
 }
 
-/* Estado ON */
+/* Estilo do botão quando estiver ativado (ON) */
 .toggle-button.on {
   background-color: #4CAF50;
 }
@@ -87,7 +98,7 @@ header input {
   transform: translateX(30px);
 }
 
-/* Estado OFF */
+/* Estilo do botão quando estiver desativado (OFF) */
 .toggle-button.off {
   background-color: #FF6347;
 }
@@ -96,13 +107,16 @@ header input {
   transform: translateX(0);
 }
 
-/* Piano keys styles */
+/* ========================== */
+/* Estilos das teclas do piano */
+/* ========================== */
 .piano-keys {
   display: flex;
   list-style: none;
   margin-top: 40px;
 }
 
+/* Estilo base de cada tecla */
 .piano-keys .key {
   cursor: pointer;
   user-select: none;
@@ -110,6 +124,7 @@ header input {
   text-transform: uppercase;
 }
 
+/* Teclas pretas */
 .piano-keys .black {
   z-index: 2;
   width: 44px;
@@ -119,11 +134,13 @@ header input {
   background: linear-gradient(#333, #000);
 }
 
+/* Efeito quando a tecla preta é pressionada */
 .piano-keys .black.active {
   box-shadow: inset -5px -10px 10px rgba(255, 255, 255, 0.1);
   background: linear-gradient(to bottom, #000, #434343);
 }
 
+/* Teclas brancas */
 .piano-keys .white {
   height: 230px;
   width: 70px;
@@ -132,11 +149,13 @@ header input {
   background: linear-gradient(#fff 96%, #eee 4%);
 }
 
+/* Efeito quando a tecla branca é pressionada */
 .piano-keys .white.active {
   box-shadow: inset -5px 5px 20px rgba(0, 0, 0, 0.2);
   background: linear-gradient(to bottom, #fff 0%, #eee 100%);
 }
 
+/* Texto (nome da nota) dentro das teclas */
 .piano-keys .key span {
   position: absolute;
   bottom: 20px;
@@ -146,16 +165,20 @@ header input {
   text-align: center;
 }
 
+/* Esconde o nome da nota quando a opção "hide" estiver ativa */
 .piano-keys .key .hide span {
   display: none;
 }
 
+/* Ajuste específico para a posição do texto nas teclas pretas */
 .piano-keys .black span {
   bottom: 13px;
   color: #888888;
 }
 
-/* Responsividade */
+/* ========================== */
+/* Responsividade para telas menores */
+/* ========================== */
 @media screen and (max-width: 815px) {
   .wrapper {
     padding: 25px;
@@ -172,15 +195,20 @@ header input {
   .piano-keys {
     margin-top: 20px;
   }
+
+  /* Esconde algumas teclas para caber melhor na tela */
   .piano-keys .key :nth-child(9),
   .piano-keys .key :nth-child(10) {
     display: none;
   }
+
+  /* Reduz tamanho das teclas para se ajustarem a telas menores */
   .piano-keys .black {
     height: 100px;
     width: 40px;
     margin: 0 -20px 0 -20px;
   }
+
   .piano-keys .white {
     height: 180px;
     width: 60px;
@@ -188,6 +216,7 @@ header input {
 }
 
 @media screen and (max-width: 615px) {
+  /* Esconde mais teclas para melhorar o encaixe na tela pequena */
   .piano-keys .key:nth-child(13),
   .piano-keys .key:nth-child(14),
   .piano-keys .key:nth-child(15),
@@ -195,6 +224,8 @@ header input {
   .piano-keys .key:nth-child(17) {
     display: none;
   }
+
+  /* Ajuste final no tamanho das teclas brancas */
   .piano-keys .white {
     width: 50px;
   }
