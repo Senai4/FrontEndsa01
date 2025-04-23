@@ -1,20 +1,18 @@
-// Seleciona todos os elementos das teclas do piano, controle de volume e botão de ligar/desligar
+// Seleção dos Elementos da Página
 const pianoKeys = document.querySelectorAll(".piano-keys .key"),
       volumeSlider = document.querySelector(".volume-slider input"),
       togglePowerButton = document.querySelector("#toggle-power");
 
 
-// Array que vai guardar as teclas (ex: "a", "s", "d"...)
-// Objeto de áudio usado para tocar as notas
-// Booleano que controla se o piano está ligado ou desligado
+// Declaração de Variáveis
 let allKeys = [],
     audio = new Audio(`tunes/a.wav`);
 let isPianoOn = false;
 
-// Remove qualquer texto que esteja dentro do botão de ligar/desligar (caso use só ícone)
+// Remover Texto do Botão de Ligar/Desligar
 togglePowerButton.textContent = "";
 
-// Função que toca a nota correspondente à tecla
+// Função para Tocar a Nota
 const playTune = (key) => {
 // Atualiza o caminho do áudio com base na tecla
 audio.src = `tunes/${key}.wav`;
@@ -30,7 +28,7 @@ setTimeout(() => {
     }, 150);
 };
 
-// Para cada tecla do piano:
+//  Adicionando Eventos de Clique nas Teclas:
 pianoKeys.forEach(key => {
     // Armazena a tecla no array allKeys (ex: "a", "s", "d"...)
     allKeys.push(key.dataset.key);
@@ -40,12 +38,12 @@ pianoKeys.forEach(key => {
     });
 });
 
-// Função que ajusta o volume conforme o valor do controle deslizante
+// Função para Controlar o Volume
 const handleVolume = (e) => {
     audio.volume = e.target.value;
 };
 
-// Função para alternar o estado do piano (ligado/desligado)
+// Função para Alternar o Estado do Piano (Ligado/Desligado)
 const togglePianoState = () => {
     isPianoOn = !isPianoOn;
 
@@ -54,7 +52,7 @@ const togglePianoState = () => {
     togglePowerButton.classList.toggle("off", !isPianoOn);
 };
 
-// Detecta quando uma tecla do teclado físico é pressionada
+// Detectando Teclas do Teclado Físico
 const pressedKey = (e) => {
     if (isPianoOn && allKeys.includes(e.key)) {
         playTune(e.key);
@@ -62,7 +60,6 @@ const pressedKey = (e) => {
 };
 
 // Eventos
-// Clique no botão de ligar/desligar
 togglePowerButton.addEventListener("click", togglePianoState);
 // Mudança no controle de volume
 volumeSlider.addEventListener("input", handleVolume);
