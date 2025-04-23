@@ -1,4 +1,4 @@
-const $luzesDelCirculo = document.querySelectorAll('.luzes-circulo');
+const $luzesDelCirculo = document.querySelectorAll('.luzes-circulo');//seleciona elementos do html
 
 // Sequência desejada: vermelho → verde → amarelo
 const ordemDasCores = ['red', 'green', 'yellow'];
@@ -27,4 +27,4 @@ const mostrarLuz = () => {
   contadorDeLuz = (contadorDeLuz + 1) % ordemDasCores.length;
 };
 
-setInterval(mostrarLuz, 2000);
+setInterval(mostrarLuz, 2000);//loop infinito
