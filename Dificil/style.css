@@ -59,13 +59,13 @@ h1{
     font-size: 2rem;
     font-weight: bold;
     color: #333;
-    display: none;
-    z-index: 1000;
+    display: none; /* Garante que a mensagem não fique visivel */
+    z-index: 1000; /* Garente que fique por cima de tudo */
     text-align: center;
 }
 
 #mensagem.mostrar {
-    display: block;
+    display: block; /* Quando a class .mostrar é adicionada a mensagem deve aparecer */
 }
 
 button{

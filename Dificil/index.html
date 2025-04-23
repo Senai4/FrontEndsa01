@@ -12,6 +12,7 @@
 <body>
     <h1>Jogo da Velha</h1>
     <div id="jogo" class="game">
+        <!-- Array de 9 class .cell representa a célula do jogo e o atributo data-index para que o js identificar qual célula está sendo clicada -->
         <div class="cell" data-index="1"></div>
         <div class="cell" data-index="2"></div>
         <div class="cell" data-index="3"></div>
@@ -23,7 +24,7 @@
         <div class="cell" data-index="9"></div>
     </div>
     <button id="reset">Reiniciar Jogo</button> <!-- Botão de reiniciar o jogo -->
-    <div id="mensagem" class="mensagem"></div>
+    <div id="mensagem" class="mensagem"></div> <!-- id="mensagem" ativado pelo js com a class .mostrar-->
 
     <script src="script.js"></script> <!-- Link para o arquivo JS -->
 </body>
