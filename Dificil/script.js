@@ -47,7 +47,7 @@ function jogar(event) {
     tabuleiro[index] = vezDoJogador;
     atualizarTabuleiro();
 
-    const vencedor = verificarVencedor();
+    const vencedor = verificarVencedor(); // Verifica se o jogo está ativo, pega o indice da célula clicada 
     if (vencedor) {
         exibirMensagem(`${vencedor} venceu!`);
         jogoAtivo = false;
